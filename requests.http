@@ -1,0 +1,26 @@
+@domain = http://localhost:3000
+### Places Index
+GET {{ domain }}/places
+
+### Places Create
+POST {{ domain }}/places
+Content-Type: application/json
+
+{
+  "name": "A place to destroy later",
+  "address": "Doesnt really matter now does it"
+}
+
+### Place Show
+GET {{ domain }}/places/1
+
+### Place Update
+PATCH {{ domain }}/places/5
+Content-Type: application/json
+
+{
+  "address": 6
+}
+
+### Place Destroy
+DELETE {{ domain }}/places/5
