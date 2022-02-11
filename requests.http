@@ -1,4 +1,5 @@
 @domain = http://localhost:3000
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NDQ2NDMwNTl9.ohU4-vf66yz8rOHwIabEeobafxZtdbW5m8HI4VJ2sxM
 ### Places Index
 GET {{ domain }}/places
 
@@ -15,7 +16,7 @@ Content-Type: application/json
 GET {{ domain }}/places/1
 
 ### Place Update
-PATCH {{ domain }}/places/5
+PATCH {{ domain }}/places/6
 Content-Type: application/json
 
 {
@@ -23,4 +24,34 @@ Content-Type: application/json
 }
 
 ### Place Destroy
-DELETE {{ domain }}/places/5
+DELETE {{ domain }}/places/6
+
+### Users create (signup)
+POST {{ domain }}/users
+Content-Type: application/json
+
+{
+  "name": "Test name",
+  "email": "test@test.com",
+  "password": "password",
+  "password_confirmation": "password"
+}
+
+### Sessions create (login)
+POST {{ domain }}/sessions
+Content-Type: application/json
+
+{
+  "email": "test@test.com",
+  "password": "password"
+}
+
+### Photos create
+POST http://localhost:3000/places
+Authorization: Bearer {{ jwt }}
+Content-Type: application/json
+
+{
+  "name": "Test name",
+  "address": "Test Address" 
+}

@@ -5,4 +5,8 @@ Rails.application.routes.draw do
   patch "/places/:id" => "places#update"
   delete "/places/:id" => "places#destroy"
 
+  post "/users" => "users#create"
+
+  post "/sessions" => "sessions#create"
+
 end
